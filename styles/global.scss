@@ -1,0 +1,17 @@
+@use "./reset";
+@use "./variables";
+
+
+body {
+    background-color: rgba(3, 0, 19, 1);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+
+* {
+    &::selection {
+        background-color: var(--base-1);
+        // color: black;
+    }
+}

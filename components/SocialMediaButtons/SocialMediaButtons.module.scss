@@ -1,0 +1,62 @@
+@use '../../styles/mixins.scss' as *;
+
+
+.socialMedia {
+    width: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+    z-index: 2;
+
+    @include responsive("md") {
+        width: 35rem;
+    }
+
+    @include responsive("xs") {
+        width: 23rem;
+    }
+
+}
+
+.btn {
+    border: none;
+    width: 18rem;
+    height: 7rem;
+    font-size: 2rem;
+    background-color: rgba(255,255,255, 0.1);
+    border-radius: .5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    animation: buttonAnimationLeft 5s forwards;
+    text-decoration: none;
+    transition: all .2s;
+
+    &:hover {
+        box-shadow: -7px 6px 15px black;
+        transform: translate(.3rem, -.3rem);
+        background-color: rgba(255,255,255, 0.2);
+        color: var(--base-1);
+    }
+
+    @include responsive("md") {
+        width: 15rem;
+        height: 6rem;
+    }
+
+    @include responsive("xs") {
+        width: 10rem;
+        height: 4.5rem;
+        font-size: 1.2rem;
+    }
+}
+
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+}
