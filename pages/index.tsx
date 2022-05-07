@@ -47,25 +47,25 @@ const Home: NextPage = () => {
 
                   className={styles.swiper}
               >
-                <SwiperSlide><Card name='sneak1' extension='gif' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak2' extension='gif' /></SwiperSlide>
+                <SwiperSlide><Card name='sneak1' extension='png' /></SwiperSlide>
+                <SwiperSlide><Card name='sneak2' extension='png' /></SwiperSlide>
                 <SwiperSlide><Card name='sneak3' extension='png' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak4' extension='jpg' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak5' extension='jpg' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak6' extension='jpg' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak7' extension='jpg' /></SwiperSlide>
+                <SwiperSlide><Card name='sneak4' extension='png' /></SwiperSlide>
+                <SwiperSlide><Card name='sneak5' extension='png' /></SwiperSlide>
+                <SwiperSlide><Card name='sneak6' extension='png' /></SwiperSlide>
+                <SwiperSlide><Card name='sneak7' extension='png' /></SwiperSlide>
                 <SwiperSlide><Card name='sneak8' extension='png' /></SwiperSlide>
               </Swiper>
             </div>
 
             <div className={styles.collectionSmallDevice}>
-              <Card name='sneak1' extension='gif' />
-              <Card name='sneak2' extension='gif' />
+              <Card name='sneak1' extension='png' />
+              <Card name='sneak2' extension='png' />
               <Card name='sneak3' extension='png' />
-              <Card name='sneak4' extension='jpg' />
-              <Card name='sneak5' extension='jpg' />
-              <Card name='sneak6' extension='jpg' />
-              <Card name='sneak7' extension='jpg' />
+              <Card name='sneak4' extension='png' />
+              <Card name='sneak5' extension='png' />
+              <Card name='sneak6' extension='png' />
+              <Card name='sneak7' extension='png' />
               <Card name='sneak8' extension='png' />
             </div>
            
