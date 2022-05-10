@@ -1,16 +1,42 @@
 import type { NextPage } from 'next'
+import fs from 'fs';
+import path from 'path';
 import styles from './index.module.scss';
 import Waves from '../public/svg/waves.svg';
+import { Image } from '../components/Image/Image';
+import { Gap } from '../components/Gap/Gap';
 
 import { SocialMediaButtons } from '../components/SocialMediaButtons/SocialMediaButtons';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper';
+import { useEffect, useRef } from 'react';
 
 import 'swiper/css';
 
-import { Card } from '../components/card/Card';
+import { Card } from '../components/Card/Card';
 
-const Home: NextPage = () => {
+const Home = ({ sneaks }:
+    {
+      sneaks: string[]
+    }
+  ) => {
+
+    const sectionRef = useRef<null | HTMLDivElement>(null)
+
+    useEffect(() => {
+      window.addEventListener('scroll', updateScroll)
+    }, [])
+    
+    const updateScroll = () => {
+      const currentScrollY = window.scrollY
+      const elementPosition = sectionRef.current?.getBoundingClientRect().top
+
+      if (elementPosition && currentScrollY - elementPosition > 0) {
+        console.log('TERAZ');
+        
+      }
+    }
+
   return (
     <>
         <header className={styles.header}>
@@ -47,30 +73,57 @@ const Home: NextPage = () => {
 
                   className={styles.swiper}
               >
-                <SwiperSlide><Card name='sneak1' extension='png' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak2' extension='png' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak3' extension='png' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak4' extension='png' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak5' extension='png' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak6' extension='png' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak7' extension='png' /></SwiperSlide>
-                <SwiperSlide><Card name='sneak8' extension='png' /></SwiperSlide>
+                {
+                  sneaks.map((image, i) => <SwiperSlide key={i} ><Card filename={image} /></SwiperSlide>)
+                }
               </Swiper>
             </div>
 
             <div className={styles.collectionSmallDevice}>
-              <Card name='sneak1' extension='png' />
-              <Card name='sneak2' extension='png' />
-              <Card name='sneak3' extension='png' />
-              <Card name='sneak4' extension='png' />
-              <Card name='sneak5' extension='png' />
-              <Card name='sneak6' extension='png' />
-              <Card name='sneak7' extension='png' />
-              <Card name='sneak8' extension='png' />
+                {
+                  sneaks.map((image, i) => <SwiperSlide key={i} ><Card filename={image} /></SwiperSlide>)
+                }
             </div>
            
              
          
+        </section>
+
+        <section ref={sectionRef} className={styles.journalSection}>
+            
+            <div className={styles.sectionWrapper}>
+              <div className={styles.textWrapper}>
+                <h2>
+                  Behold the first page of journal!
+                </h2>
+                <p>
+                  We are in awe. Chorles has decided to share with us, his devoted disciples, the bounty of his wisdom. 
+                </p>
+              </div>
+
+              <Image name='journal.png' alt='journal image' />
+            </div>
+
+        </section>
+
+        <Gap />
+
+        <section className={styles.ceremonySection}>
+            
+            <div className={`${styles.sectionWrapper} ${styles.reverse}`}>
+
+                <Image name='ceremony.png' alt='ceremony image' />
+
+                <div className={styles.textWrapper}>
+                  <h2>
+                    Ceremony
+                  </h2>
+                  <p>
+                    The first ceremony is complete. Chorles’s Disciples have been initiated.
+                  </p>
+                </div>
+                
+            </div>
         </section>
 
         <footer className={styles.footer}>
@@ -89,3 +142,19 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+
+
+export const getStaticProps = async () => {
+  const files = fs.readdirSync(path.join('public/images'))
+
+  const sneaks = files.filter(filename => filename.includes('sneak'))
+  console.log(sneaks);
+  
+  
+  return {
+    props: {
+      sneaks
+    }
+  }
+}

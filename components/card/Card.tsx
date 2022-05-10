@@ -1,14 +1,13 @@
 import styles from './Card.module.scss';
 
-export const Card = ({ name, extension }: 
+export const Card = ({ filename }: 
     {
-        name: string, 
-        extension: string
+        filename: string
     }
     ) => {
     return (
         <div className={styles.card}>   
-            <img src={`./images/${name}.${extension}`} alt={`${name}`} className={styles.cardImage} />
+            <img src={`./images/${filename}`} alt={`${filename}`} className={styles.cardImage} />
         </div>
     )
 }

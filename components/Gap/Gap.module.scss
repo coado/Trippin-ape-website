@@ -1,0 +1,18 @@
+
+
+.gapWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10rem 0;
+}
+
+.gap {
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    margin-top: 3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}

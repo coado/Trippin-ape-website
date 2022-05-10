@@ -18,3 +18,9 @@ $breakpoints: (
           @error 'Invalid breakpoint #{$breakpoint}';
       }
   }
+
+@mixin section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
