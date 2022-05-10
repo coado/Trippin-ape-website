@@ -9,33 +9,16 @@ import { Gap } from '../components/Gap/Gap';
 import { SocialMediaButtons } from '../components/SocialMediaButtons/SocialMediaButtons';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper';
-import { useEffect, useRef } from 'react';
+import { Card } from '../components/card/Card';
 
 import 'swiper/css';
 
-import { Card } from '../components/Card/Card';
 
 const Home = ({ sneaks }:
     {
       sneaks: string[]
     }
   ) => {
-
-    const sectionRef = useRef<null | HTMLDivElement>(null)
-
-    useEffect(() => {
-      window.addEventListener('scroll', updateScroll)
-    }, [])
-    
-    const updateScroll = () => {
-      const currentScrollY = window.scrollY
-      const elementPosition = sectionRef.current?.getBoundingClientRect().top
-
-      if (elementPosition && currentScrollY - elementPosition > 0) {
-        console.log('TERAZ');
-        
-      }
-    }
 
   return (
     <>
@@ -89,7 +72,7 @@ const Home = ({ sneaks }:
          
         </section>
 
-        <section ref={sectionRef} className={styles.journalSection}>
+        <section className={styles.journalSection}>
             
             <div className={styles.sectionWrapper}>
               <div className={styles.textWrapper}>
@@ -149,8 +132,6 @@ export const getStaticProps = async () => {
   const files = fs.readdirSync(path.join('public/images'))
 
   const sneaks = files.filter(filename => filename.includes('sneak'))
-  console.log(sneaks);
-  
   
   return {
     props: {
