@@ -6,7 +6,7 @@ body {
    // background-color: rgba(3, 0, 19, 1);
     overflow-x: hidden;
     min-height: 100vh;
-    background-image: linear-gradient(to right top, #010e23, #01102f, #041139, #100f42, #210849);
+    background-image: linear-gradient(to right top, #040305, #0c0214, #11011e, #120028, #100033, #10033b, #100443, #11054b, #1e0552, #2a0458, #35035e, #410064);
 }
 
 
@@ -14,4 +14,5 @@ body {
     &::selection {
         background-color: var(--base-1);
     }
+    
 }
