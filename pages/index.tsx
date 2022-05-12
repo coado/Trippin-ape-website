@@ -11,6 +11,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper';
 import { Card } from '../components/card/Card';
 
+
 import 'swiper/css';
 
 
@@ -44,6 +45,7 @@ const Home = ({ sneaks }:
                   spaceBetween={50}
                   slidesPerView={3}
                   effect='coverflow'
+                  scrollbar={{ draggable: true }}
                   coverflowEffect={{
                     rotate: 50,
                     stretch: 0,
