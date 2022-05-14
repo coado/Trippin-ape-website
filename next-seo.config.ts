@@ -1,5 +1,5 @@
 const title = 'Trippin’ Ape Tribe - it is NOT a cult'
-const descripiton = 'The best NFT project on the Solana blockchain with the biggest community in the crypto space.'
+const descripiton = 'Trippin Ape Tribe is the best NFT project on the Solana blockchain with the biggest community in the crypto space.'
 const url = 'https://trippin-ape-website.vercel.app/'
 const twitter = '@0xVeo'
 

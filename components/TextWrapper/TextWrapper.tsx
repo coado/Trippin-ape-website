@@ -1,16 +1,19 @@
-import styles from './Image.module.scss';
+import styles from './TextWrapper.module.scss';
 import { useAnimation, motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 
-export const Image = ({ name, alt }: { name: string, alt: string }) => {
+
+export const TextWrapper = ({ header, text, reverse }: {header: string, text: string, reverse?: boolean}) => {
 
     const control = useAnimation()
     const [ref, inView] = useInView()
+    const xTransition = reverse ? 40 : -40
 
     const boxVariant = {
       visible: { 
         opacity: 1, 
+        x: 0,
         transition: {
           type: 'spring',
           delay: 0.08
@@ -19,6 +22,7 @@ export const Image = ({ name, alt }: { name: string, alt: string }) => {
       
       hidden: { 
         opacity: 0, 
+        x: xTransition 
       },
     }
 
@@ -30,13 +34,18 @@ export const Image = ({ name, alt }: { name: string, alt: string }) => {
 
     return (
         <motion.div
-            className={styles.imageWrapper}
-            ref={ref}
-            variants={boxVariant}
-            initial="hidden"
-            animate={control}    
+        className={styles.textWrapper}
+        ref={ref}
+        variants={boxVariant}
+        initial="hidden"
+        animate={control}
         >
-            <img src={`./images/${name}`} alt={alt} />
-        </motion.div>
+      <h2>
+        { header }
+      </h2>
+      <p>
+        { text }
+      </p>
+    </motion.div>
     )
 }

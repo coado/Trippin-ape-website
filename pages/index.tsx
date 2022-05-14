@@ -10,6 +10,10 @@ import { SocialMediaButtons } from '../components/SocialMediaButtons/SocialMedia
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper';
 import { Card } from '../components/card/Card';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+import { TextWrapper } from '../components/TextWrapper/TextWrapper';
 
 
 import 'swiper/css';
@@ -20,6 +24,31 @@ const Home = ({ sneaks }:
       sneaks: string[]
     }
   ) => {
+
+    const control = useAnimation()
+    const [ref, inView] = useInView()
+
+    const boxVariant = {
+      visible: { 
+        opacity: 1, 
+        x: 0,
+        transition: {
+          type: 'spring',
+          delay: 0.08
+        } 
+      },
+      
+      hidden: { 
+        opacity: 0, 
+        x: -40 
+      },
+    }
+
+    useEffect(() => {
+      if (inView) {
+        control.start("visible");
+      } 
+    }, [control, inView]);
 
   return (
     <>
@@ -77,15 +106,10 @@ const Home = ({ sneaks }:
         <section className={styles.journalSection}>
             
             <div className={styles.sectionWrapper}>
-              <div className={styles.textWrapper}>
-                <h2>
-                  Behold the first page of journal!
-                </h2>
-                <p>
-                  We are in awe. Chorles has decided to share with us, his devoted disciples, the bounty of his wisdom. 
-                </p>
-              </div>
-
+              <TextWrapper
+                header='Behold the first page of journal!'
+                text='We are in awe. Chorles has decided to share with us, his devoted disciples, the bounty of his wisdom.'
+              />
               <Image name='journal.png' alt='journal image' />
             </div>
 
@@ -98,16 +122,12 @@ const Home = ({ sneaks }:
             <div className={`${styles.sectionWrapper} ${styles.reverse}`}>
 
                 <Image name='ceremony.png' alt='ceremony image' />
-
-                <div className={styles.textWrapper}>
-                  <h2>
-                    Ceremony
-                  </h2>
-                  <p>
-                    The first ceremony is complete. Chorles’s Disciples have been initiated.
-                  </p>
-                </div>
                 
+                <TextWrapper 
+                  header='Ceremony'
+                  text='The first ceremony is complete. Chorles’s Disciples have been initiated.'
+                  reverse={true}
+                />
             </div>
         </section>
 
