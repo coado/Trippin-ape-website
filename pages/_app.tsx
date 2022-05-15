@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <DefaultSeo {...SEO} />
       <Head>
-        <meta property='og:description' content={SEO.descripiton} />
+        <meta property='description' content={SEO.descripiton} />
       </Head>
         <Component {...pageProps} />
     </>

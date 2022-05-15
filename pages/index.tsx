@@ -103,7 +103,7 @@ const Home = ({ sneaks }:
          
         </section>
 
-        <section className={styles.journalSection}>
+        <section className={styles.section}>
             
             <div className={styles.sectionWrapper}>
               <TextWrapper
@@ -117,7 +117,7 @@ const Home = ({ sneaks }:
 
         <Gap />
 
-        <section className={styles.ceremonySection}>
+        <section className={styles.section}>
             
             <div className={`${styles.sectionWrapper} ${styles.reverse}`}>
 
@@ -128,6 +128,23 @@ const Home = ({ sneaks }:
                   text='The first ceremony is complete. Chorles’s Disciples have been initiated.'
                   reverse={true}
                 />
+            </div>
+        </section>
+
+
+        <Gap />
+
+        <section className={styles.section}>
+            
+            <div className={styles.sectionWrapper}>
+                
+                <TextWrapper 
+                  header='The second page of Chorles journal has been revealed!'
+                  text='Chorles just let us turn to the second page of his journal. We aren’t sure what to make of this fungus, but there’s no denying the vibrations emanating from the ink on the paper. They feel profound... even sacred. Can you feel it?'
+                />
+
+                <Image name='journal2.jpg' alt='second journal image' />
+              
             </div>
         </section>
 

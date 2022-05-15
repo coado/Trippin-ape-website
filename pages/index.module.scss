@@ -16,7 +16,15 @@
 
 }
 
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    &:last-of-type {
+        margin-bottom: 10rem;
+    }
+}
 
 
 ////////////////////////////////////////
@@ -141,20 +149,6 @@
     margin: 6rem 0 ;
 }
 
-///////////////////////////////////// JOURNAL
-
-.journalSection {
-    @include section;
-}
-
-
-
-//////////////////////////////////// CEREMONY
-
-.ceremonySection {
-    @include section;
-    margin-bottom: 10rem;
-}
 
 .reverse {
     @include responsive('lg') {
